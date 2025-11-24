@@ -21,7 +21,7 @@
 // VARIAVEIS DE CONTROLE ---------------------------------------------------------------------------------
 
     // maximo de caracteres por linha com tamanho de fonte 20 é de 68 caracteres
-    char strCaixaDialogo[] = "sexo sexo sexo sexo sexo sexo sexo sexo sexo sexo sexo sexo sexo \nsexo sexo sexo sexo sexo sexo sexo sexo sexo sexo sexo sexo sexo \nsexo sexo sexo sexo sexo sexo sexo sexo sexo sexo sexo sexo sexo \nsexo sexo sexo sexo sexo sexo sexo sexo sexo sexo sexo sexo sexo \nsexo sexo sexo sexo sexo sexo sexo sexo sexo sexo sexo sexo sexo \n";
+    char strCaixaDialogo[] = "texto texto texto texto texto texto texto texto texto texto texto \ntexto texto texto texto texto texto texto texto texto texto texto \ntexto texto texto texto texto texto texto texto texto texto texto \ntexto texto texto texto texto texto texto texto texto texto texto \ntexto texto texto texto texto texto texto texto texto texto texto \n";
     // usar laço for() para realizar a quebra de linhas
     
 // FIM DAS VARIAVEIS DE CONTROLE -------------------------------------------------------------------------
@@ -64,7 +64,7 @@ EstadoTela telaJogo(EstadoTela **tela, Imagens **imagens, int LARGURA, int ALTUR
     DrawText("Carregar", LARGURA * 0.617, ALTURA * 0.01, 12, corStrCarregar);
 
     // CAIXA DE DIALOGO
-    DrawRectangleRounded((Rectangle){LARGURA * 0.01, ALTURA * 0.65, LARGURA * 0.98, ALTURA * 0.33}, 0.3f, 10, (Color){0, 0, 0, (255)/1});
+    DrawRectangleRounded((Rectangle){LARGURA * 0.01, ALTURA * 0.65, LARGURA * 0.98, ALTURA * 0.33}, 0.3f, 10, (Color){0, 0, 0, (255)/1.5});
     // DIALOGO INTERNO
     DrawText(strCaixaDialogo, LARGURA * 0.04, ALTURA * 0.7, 20, WHITE);
     //GuiTextBox((Rectangle){LARGURA * 0.01, ALTURA * 0.55, LARGURA * 0.98, ALTURA * 0.43},"lorem ipsum dolor sit amet", 10, false);
