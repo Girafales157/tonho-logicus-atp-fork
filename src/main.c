@@ -129,29 +129,22 @@ EstadoTela telaMenu(EstadoTela **tela, Imagens **imagens){
     }
 }
 
-EstadoTela telaJogo(EstadoTela **tela){
-    // aqui roda o desafio dentro da tela de jogo
-    EstadoTela telaJogo(EstadoTela **tela);{
-    // aqui roda o desafio dentro da tela de jogo
+EstadoTela telaJogo(EstadoTela **tela) {
+    // roda o desafio da tela de jogo
     RodarDesafioCaixinhas();
 
-    // exemplo de transição pro mapa continua igual
+    // desenha instrução na tela
+    DrawText("TELA DO JOGO - Aperte 'M' para abrir o mapa", 100, 200, 20, BLACK);
+
+    // verifica se vai pro mapa
     if (IsKeyPressed(KEY_M)) {
         return TELA_MAPA;
-    } else {
-        return **tela;
     }
+
+    // continua na mesma tela
+    return **tela;
 }
 
-    DrawText("TELA DO JOGO - Aperte \'M\' para abrir o mapa", 100, 200, 20, BLACK);
-    if (IsKeyPressed(KEY_M))
-    {
-        return TELA_MAPA;
-    } else {
-        // se 'M' não for apertado a tela permanece a mesma
-        return **tela;
-    }
-}
 
 EstadoTela telaMapa(EstadoTela **tela){
     DrawText("MAPA MPAAP MAPA", 100, 200, 20, BLACK);
