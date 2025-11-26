@@ -17,7 +17,6 @@ RG_INC = ./bibliotecas/raygui/src
 
 CPPFLAGS = -I$(RL_INC) -I$(RG_INC) -I$(INCLUDE)
 
-#isso aqui são os arquivos objeto, essa parte eu entendi
 OBJS = recursos.o save.o dialogo.o caixinhas.o main.o
 
 all: ./build/logicus
