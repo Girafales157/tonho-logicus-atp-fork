@@ -1,50 +1,68 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+
 #include "raylib.h"
-#include "../../src/raygui.h"
+
 #include "dialogo.h"
 
+// conta a quantidade de linhas do arquivo
 int contaLinhas (FILE *arquivo) {
-    char c;
-    int linhas = 0;
+    char c; // percorre caractere por caractere no arquivo
+    int linhas = 0;      
+    
+    // loop até o final do arquivo
     while (!feof(arquivo)) {
 	    c = fgetc(arquivo);
-	    if (c == '\n') {
+            if (c == '\n') {
 		linhas++;
 	    }
     }
-
+    
+    // reinicia a posição do ponteiro pro começo do arquivo
     rewind(arquivo);
-
+    
+    // retorna o total de linhas
     return linhas;
 }
 
-struct dialogo *carregarDialogo (FILE *arquivo, int linhas, int *totalDialogos) {
-    struct dialogo *fala = (struct dialogo*) calloc(linhas, sizeof(struct dialogo));
-    char aux[256];
-    int dialogoAtual = 0;
+// função que aloca os dialogos lidos do arquivo
+Dialogo *carregarDialogo (FILE *arquivo, int linhas, int *totalDialogos) {
+
+    // ponteiro que receberá cada linha de dialogo na estruturai
+    Dialogo *fala = (struct dialogo*) calloc(linhas, sizeof(Dialogo));
+    char aux[256]; // auxiliar para a separação do nome e texto      
+    int dialogoAtual = 0; // contador
     
-    int acm = 0;
-    int auxI = 0;
-	
+    int acm = 0; // acumulador para definir o tamanho da string copiada
+    int auxI = 0; // auxiliar para definir o tamanho do nome
+    
+    // laço para a leitura de cada linha do dialogo 
     for (dialogoAtual = 0; dialogoAtual < linhas; dialogoAtual++) {
-	fgets(aux, 256, arquivo);
+	// auxilar copia a linha no indicie atual
+        fgets(aux, 256, arquivo);
 	
+        // laço para encontrar o caractere separador ('|') entre nome e texto
 	for (int i = 0; i < strlen(aux); i++) {
 	    if (aux[i] == '|') {
-		auxI = i;
+		auxI = i; // armazena o indicie do separador 
 		break;
 	    }
-	acm++;
+	acm++; // acumula a quantidade de caracteres do nome 
 	}
+                // adiciona o nome no indicie atual do vetor de Dialogo
 		strncpy(fala[dialogoAtual].nome, aux, acm);
+
+                // adiciona o texto a partir do caractere seguinte ao separador
 		strcpy(fala[dialogoAtual].texto, &aux[auxI+1]);	
-		acm = 0;
+		acm = 0; // acumulador zerado para próxima leitura de linha
 	}
-    fclose(arquivo);
+    fclose(arquivo); // fecha o arquivo de dialogos
+
+    // passa a quantidade de dialogos para fora da função
     *totalDialogos = dialogoAtual;
     
+    // retorna a estrutura com informações lidas
     return fala;
 }
 
