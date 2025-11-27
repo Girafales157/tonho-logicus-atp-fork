@@ -11,10 +11,12 @@
 
 // importacao de arquivos header de prototipacao e carregamento
 
-#include "save.h"
-#include "dialogo.h"
+
+
 #include "recursos.h"
 #include "telas.h"
+#include "caixinhas.h"
+
 
 // declaracao de constantes globais
 // ...
