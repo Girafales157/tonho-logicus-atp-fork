@@ -38,7 +38,7 @@ EstadoTela telaInput(EstadoTela *tela, Imagens *imagens, int LARGURA, int ALTURA
     // CAIXA DO ENUNCIADO --------------------------------------------------------------------------------
     
     DrawRectangleRounded((Rectangle){LARGURA * 0.01, ALTURA * 0.25, LARGURA * 0.98, ALTURA * 0.50}, 0.1f, 10, (Color){255, 255, 255, (255)/1});
-    DrawText("Zoio, eu te desafio a escrever uma", LARGURA * 0.04, ALTURA * 0.06, 30, WHITE);
+    DrawText("Eu te desafio a escrever uma", LARGURA * 0.04, ALTURA * 0.06, 30, WHITE);
     DrawText("ESTRUTURA DE REPETIÇÃO", LARGURA * 0.04, ALTURA * 0.13, 30, RED);
     
     DrawText(strEnunciado, LARGURA * 0.04, ALTURA * 0.275, 20, BLACK);
